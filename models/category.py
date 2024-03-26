@@ -20,3 +20,10 @@ class Category(Base):
 
     products = relationship(
         'Product', secondary=product_category, back_populates='categories')
+    
+    def serialize(self):
+        """create attrs of the category as dict"""
+        return {
+            'id': self.id,
+            'name': self.name
+        }

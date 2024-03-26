@@ -1,3 +1,4 @@
+from flask import jsonify
 from sqlalchemy import DateTime, Double, ForeignKey, Text, Column, BigInteger, func
 from sqlalchemy.orm import relationship
 from models.base import Base
@@ -29,6 +30,20 @@ class Product(Base):
     condition_id = Column(BigInteger, ForeignKey('condition.id'))
     condition = relationship('Condition')
 
+    def short_serialize(self):
+        """only a short list for home page"""
+        return {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'image_url': self.image_url,
+            'availability': self.availability,
+            'on_sale': self.on_sale,
+            'price': self.price,
+            'currency': self.currency,
+            'condition': self.condition.serialize() if self.condition else None,
+        }
+
     def serialize(self):
         """ create attrs of the product as dict """
         return {
@@ -42,5 +57,7 @@ class Product(Base):
             'currency': self.currency,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            'brand_id': self.brand_id
+            'brand': self.brand.serialize() if self.brand else None,
+            'condition': self.condition.serialize() if self.condition else None,
+            'categories': [category.serialize() for category in self.categories],
         }

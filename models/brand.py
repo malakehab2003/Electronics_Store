@@ -11,3 +11,10 @@ class Brand(Base):
     name = Column(Text, nullable=False)
 
     products = relationship('Product', back_populates='brand')
+
+    def serialize(self):
+        """create attrs of the brand as dict"""
+        return {
+            'id': self.id,
+            'name': self.name
+        }
