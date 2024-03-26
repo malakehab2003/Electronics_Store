@@ -42,8 +42,12 @@ def product(id):
 @app.route('/')
 def index():
     """ Index page """
+    items = session.query(Product).all()
+    list_all = []
+    for item in items:
+        list_all.append(item.short_serialize())
     return render_template(
-        '/home_page_components/list.html')
+        '/home_page_components/list.html', items=list_all)
 
 
 @app.errorhandler(404)
