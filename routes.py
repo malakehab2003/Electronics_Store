@@ -2,13 +2,15 @@
 """make the flask file"""
 
 
-from flask import Flask, jsonify, abort
+from flask import Flask, jsonify, abort, render_template
 from models.base import session
 from models.product import Product
+from flask import render_template
 
 app = Flask(__name__)
 
 app.debug = True
+
 
 @app.teardown_appcontext
 def reload(exception):
@@ -35,13 +37,19 @@ def product(id):
     else:
         arg_item = item.serialize()
         return jsonify(arg_item)
-    
+
+
+@app.route('/')
+def index():
+    """ Index page """
+    return render_template(
+        '/home_page_components/list.html')
+
 
 @app.errorhandler(404)
 def not_found(error):
     """ Handle 404 error """
-    return ('Sorry this page does not exist')
-
+    return 'Sorry this page does not exist'
 
 
 if __name__ == '__main__':

@@ -1,0 +1,80 @@
+:root {
+	--radius: 20px;
+	--radius-large: 25px;
+}
+
+.home {
+	margin: 0;
+	height: 100%;
+}
+
+.welcome {
+	margin: 0;
+	height: 100vh;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-attachment: local;
+	background-size: 100% 100%;
+	background-image: url("../images/background.png");
+}
+
+.title {
+	margin: 0;
+	text-align: center;
+	padding-top: 10px;
+	color: blueviolet;
+	font-family: "Roboto";
+}
+
+.half {
+	width: 30%;
+	height: 100%;
+	padding-right: 85px;
+	position: relative;
+}
+
+
+.welcome-text h1 {
+	color: blue;
+	font-weight: bolder;
+}
+
+.welcome-text {
+	opacity: 100%;
+	color: blueviolet;
+	font-family: "Roboto";
+	height: 288px;
+	transition: 0.5s ease-in-out;
+	position: absolute;
+	top: 20%;
+}
+
+.hidden {
+	opacity: 0;
+}
+
+.spacer {
+	height: 40px;
+}
+
+.circles {
+	width: 50%;
+	height: 30px;
+}
+
+.circle {
+	transition: 0.5s;
+	border-radius: 100%;
+}
+
+.light {
+	background-color: red;
+	width: var(--radius);
+	height: var(--radius);
+}
+
+.dark {
+	background-color: blue;
+	width: var(--radius-large);
+	height: var(--radius-large);
+}

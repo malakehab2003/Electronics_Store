@@ -1,0 +1,30 @@
+{% extends 'home_page.html' %}
+{% block welcome %}
+<div class="welcome">
+	<h1 class="title h-25">Electronic Store</h1>
+	<div class="middle h-75 d-flex align-items-center justify-content-between">
+		<div class="w-50">
+			<img alt="logo" class="img-fluid" src="/static/images/Side Logo.png" />
+		</div>
+		<div class="half d-flex align-items-end flex-column justify-content-center">
+			<div style="height: 288px;"></div>
+			<div class="welcome-text">
+				<h1></h1>
+				<p></p>
+			</div>
+			{% for item in range(2) %}
+			<div class="welcome-text hidden">
+				<h1></h1>
+				<p></p>
+			</div>
+			{% endfor %}
+			<div class="spacer"></div>
+			<div class="d-flex align-items-center justify-content-evenly circles">
+				{% for item in range(3) %}
+				<div class="circle light"></div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
