@@ -1,8 +1,25 @@
 body {
-	margin: 0;
 	width: 100vw;
-	min-height: 100vh;
 	overflow-x: hidden;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-attachment: local;
+	background-size: 100% 100%;
+	background-image: url("../images/background.png");
+}
+
+.app-bar {
+	position: fixed !important;
+	width: 100vw;
+	background: linear-gradient(45deg, rgba(80, 75, 84, 1) 0%, rgba(138, 16, 188, 1) 37%, rgba(88, 161, 239, 1) 100%);
+	padding: 5px 25px 5px 10px !important;
+	z-index: 10;
+}
+
+.app-bar-title {
+	margin-left: auto;
+	margin-bottom: 0 !important;
+	color: white;
 }
 
 /* roboto-regular - latin */

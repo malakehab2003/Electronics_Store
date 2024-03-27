@@ -2,11 +2,28 @@
 {% block list %}
 <div class="home">
 	{% for i in range(10) %}
-	<div class="card product p-2">
+	<div class="card product p-2" onclick="showProduct({{items[i].id}})">
+		{%if items[i].on_sale.lower() == 'true'%}
+		<div class="on-sale text-center"></div>
+		{%endif%}
 		<div class="image-holder card">
 			<img src="{{items[i].image_url}}" alt="{{items[i].name}}">
 		</div>
-		<h5 style="margin: 0;">{{items[i].name}}</h5>
+		<h5 class="no-margin">{{items[i].name}}</h5>
+		<p class="no-margin description">
+			{{items[i].description}}</p>
+		<div class="d-flex align-items-center justify-content-evenly" style="margin-top: auto;">
+			<div class="card p-1 condition {{'bg-warning' if items[i].condition.lower() == 'new' else ''}}">
+				{{items[i].condition}}
+			</div>
+			<div
+				class="card p-1 availability text-white {{'bg-success' if items[i].availability.lower() != 'false' else 'bg-danger'}}">
+				{{'In Stock' if items[i].availability.lower() != 'false' else 'Out of stock'}}
+			</div>
+			<div class="card p-1 price">
+				{{items[i].price}} {{items[i].currency}}
+			</div>
+		</div>
 	</div>
 	{% endfor %}
 </div>

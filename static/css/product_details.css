@@ -1,0 +1,68 @@
+.product-details {
+	margin-top: 10px;
+	justify-content: space-between;
+	width: 90%;
+	height: 85% !important;
+	padding: 1.5% 2.5%;
+	background-color: transparent !important;
+	background: linear-gradient(45deg, rgba(80, 75, 84, 0.75) 0%, rgba(138, 16, 188, 0.75) 37%, rgba(88, 161, 239, 0.75) 100%);
+}
+
+
+.content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.product-details .details {
+	width: 55%;
+	height: 100%;
+	background-color: #85d9ffd4;
+	padding: 1.5% 2.5%;
+}
+
+.details h1 {
+	color: blueviolet;
+}
+
+/* This will change the scrollbar for the .details class */
+.details p::-webkit-scrollbar {
+	transition: 2s;
+	width: 0;
+}
+
+.details p:hover::-webkit-scrollbar {
+	transition: 2s;
+	width: 0.3em;
+}
+
+.details p::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.details p::-webkit-scrollbar-thumb {
+	background-color: transparent;
+	/* make the thumb transparent when not hovered */
+	outline: 0;
+}
+
+.details p:hover::-webkit-scrollbar-thumb {
+	background-color: blueviolet;
+	outline: 1px solid slategrey;
+}
+
+.product-details .image {
+	border: 5px solid blueviolet !important;
+	padding: 1%;
+	width: 40%;
+	height: 100%;
+	background-color: white;
+}
+
+.product-details .image img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}

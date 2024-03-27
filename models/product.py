@@ -41,7 +41,7 @@ class Product(Base):
             'on_sale': self.on_sale,
             'price': self.price,
             'currency': self.currency,
-            'condition': self.condition.serialize() if self.condition else None,
+            'condition': self.condition.serialize().get('name') if self.condition else "New",
         }
 
     def serialize(self):

@@ -4,7 +4,6 @@ $(() => {
 	var circles = $('.circle');
 	var index = 0;
 	var text = $('.welcome-text');
-	console.log(text);
 	const messages = [
 		{
 			h1: 'This is our Store for all Your Electronic Needs',
@@ -41,3 +40,8 @@ $(() => {
 		$(circles[index]).addClass('dark');
 	}, 2000)
 })
+
+
+const showProduct = (id) => {
+	window.location.href = `/product/${id}`;
+}

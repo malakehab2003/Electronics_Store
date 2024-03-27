@@ -50,6 +50,18 @@ def index():
         '/home_page_components/list.html', items=list_all)
 
 
+@app.route('/product/<int:id>')
+def showProduct(id):
+    """ Product Details page """
+    item = session.query(Product).filter_by(id=id).first()
+    if not item:
+        abort(404)
+    else:
+        arg_item = item.serialize()
+        return render_template(
+            '/product.html', product=arg_item)
+
+
 @app.errorhandler(404)
 def not_found(error):
     """ Handle 404 error """
