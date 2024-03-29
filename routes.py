@@ -14,7 +14,7 @@ stripe.api_key = SECRET_KEY
 
 app = Flask(__name__)
 
-app.debug = True
+# app.debug = True
 
 
 @app.teardown_appcontext
@@ -47,7 +47,7 @@ def product(id):
 @app.route('/')
 def index():
     """ Index page """
-    items = session.query(Product).all()
+    items = session.query(Product).limit(100).all()
     list_all = []
     for item in items:
         list_all.append(item.short_serialize())

@@ -1,27 +1,27 @@
 {% extends 'home_page_components/welcome.html' %}
 {% block list %}
 <div class="home">
-	{% for i in range(50) %}
-	<div class="card product p-2" onclick="showProduct({{items[i].id}})">
-		{%if items[i].on_sale.lower() == 'true'%}
+	{% for item in items %}
+	<div class="card product p-2" onclick="showProduct({{item.id}})">
+		{%if item.on_sale.lower() == 'true'%}
 		<div class="on-sale text-center"></div>
 		{%endif%}
 		<div class="image-holder card">
-			<img src="{{items[i].image_url}}" alt="{{items[i].name}}">
+			<img src="{{item.image_url}}" alt="{{item.name}}">
 		</div>
-		<h5 class="no-margin">{{items[i].name}}</h5>
+		<h5 class="no-margin">{{item.name}}</h5>
 		<p class="no-margin description">
-			{{items[i].description}}</p>
+			{{item.description}}</p>
 		<div class="d-flex align-items-center justify-content-evenly" style="margin-top: auto;">
-			<div class="card p-1 condition {{'bg-warning' if items[i].condition.lower() == 'new' else ''}}">
-				{{items[i].condition}}
+			<div class="card p-1 condition {{'bg-warning' if item.condition.lower() == 'new' else ''}}">
+				{{item.condition}}
 			</div>
 			<div
-				class="card p-1 availability text-white {{'bg-success' if items[i].availability.lower() != 'false' else 'bg-danger'}}">
-				{{'In Stock' if items[i].availability.lower() != 'false' else 'Out of stock'}}
+				class="card p-1 availability text-white {{'bg-success' if item.availability.lower() != 'false' else 'bg-danger'}}">
+				{{'In Stock' if item.availability.lower() != 'false' else 'Out of stock'}}
 			</div>
 			<div class="card p-1 price">
-				{{items[i].price}} {{items[i].currency}}
+				{{item.price}} {{item.currency}}
 			</div>
 		</div>
 	</div>
