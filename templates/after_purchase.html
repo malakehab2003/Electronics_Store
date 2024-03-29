@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="content">
+	<div class="success-details card">
+		<h1>Thank you for your purchase!</h1>
+		<p>Your order has been placed successfully.</p>
+		<p>Click <a href="{{ url_for('index') }}">here</a> to go back to the home page.</p>
+	</div>
+</div>
+{% endblock %}

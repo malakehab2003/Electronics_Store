@@ -1,7 +1,7 @@
 {% extends 'home_page_components/welcome.html' %}
 {% block list %}
 <div class="home">
-	{% for i in range(10) %}
+	{% for i in range(50) %}
 	<div class="card product p-2" onclick="showProduct({{items[i].id}})">
 		{%if items[i].on_sale.lower() == 'true'%}
 		<div class="on-sale text-center"></div>

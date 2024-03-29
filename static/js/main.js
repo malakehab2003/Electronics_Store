@@ -1,5 +1,7 @@
 // import * as $ from 'jquery';
 
+// const { post } = require('jquery');
+
 $(() => {
 	var circles = $('.circle');
 	var index = 0;
@@ -44,4 +46,12 @@ $(() => {
 
 const showProduct = (id) => {
 	window.location.href = `/product/${id}`;
+}
+
+const purchase = (id, public_key) => {
+	const stripe = Stripe(public_key);
+	$.post('http://localhost:4000/purchase', { product_id: id })
+		.then((data) => {
+			return stripe.redirectToCheckout({ sessionId: data.id })
+		})
 }
