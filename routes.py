@@ -6,6 +6,7 @@ from flask import Flask, jsonify, abort, render_template, request, url_for
 from models.base import session
 from models.product import Product
 from flask import render_template
+from flask_cors import CORS
 
 import stripe
 SECRET_KEY = "sk_test_51NS1MqJJ7rtMTuJ7RS6QE9MjOrgy9uKsKADlVPXoL2hHSiv7pkTOpJPUdvOL2Hp2Iv6WLaJgiTZZ00nFsKe9v8Bd00K7h0HK7A"
@@ -13,6 +14,7 @@ PUBLIC_KEY = "pk_test_51NS1MqJJ7rtMTuJ7lWhwOufrqLSoSDY3sAqSvGyP82UKnWjFZ4lVrEjyT
 stripe.api_key = SECRET_KEY
 
 app = Flask(__name__)
+CORS(app)
 
 # app.debug = True
 
