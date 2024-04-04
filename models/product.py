@@ -9,7 +9,7 @@ from models.condition import Condition
 
 class Product(Base):
 
-    __tablename__ = 'product'
+    __tablename__ = 'Products'
 
     id = Column(BigInteger, primary_key=True)
     name = Column(Text, nullable=False)
