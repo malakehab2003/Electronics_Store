@@ -4,8 +4,8 @@ from sqlalchemy.orm import relationship
 from models.base import Base
 
 product_category = Table('product_category', Base.metadata,
-                         Column('product_id', ondelete='CASCADE', BigInteger, ForeignKey(
-                             'product.id'), primary_key=True),
+                         Column('product_id', BigInteger, ForeignKey(
+                             'product.id', ondelete='CASCADE'), primary_key=True),
                          Column('category_id', BigInteger, ForeignKey(
                              'category.id', ondelete='CASCADE'), primary_key=True)
                          )
