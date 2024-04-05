@@ -7,7 +7,7 @@ Base = declarative_base()
 
 user = 'alx'
 password = 'root'
-db = 'Eproject'
+db = 'electronic-store'
 
 engine = create_engine(f'mysql+mysqldb://{user}:{password}@localhost/{db}')
 sess_factory = sessionmaker(bind=engine, expire_on_commit=False)
