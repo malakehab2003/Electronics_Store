@@ -8,7 +8,7 @@ from models.condition import Condition
 
 
 class Product(Base):
-
+    """ create the product table which contain all products """
     __tablename__ = 'product'
 
     id = Column(BigInteger, primary_key=True)

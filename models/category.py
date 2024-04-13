@@ -12,7 +12,7 @@ product_category = Table('product_category', Base.metadata,
 
 
 class Category(Base):
-
+    """ create the category class to specify the category of each product """
     __tablename__ = 'category'
 
     id = Column(BigInteger, primary_key=True)
@@ -21,6 +21,7 @@ class Category(Base):
     products = relationship(
         'Product', secondary=product_category, back_populates='categories')
     
+    # create the serialize function to return dict with all attrs
     def serialize(self):
         """create attrs of the category as dict"""
         return {

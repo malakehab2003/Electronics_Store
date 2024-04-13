@@ -43,11 +43,12 @@ $(() => {
 	}, 2000)
 })
 
-
+// get a specific product
 const showProduct = (id) => {
 	window.location.href = `/product/${id}`;
 }
 
+// send a post request to stripe
 const purchase = (id, public_key) => {
 	const stripe = Stripe(public_key);
 	$.post('http://web-02.malakehab.tech/purchase', { product_id: id })

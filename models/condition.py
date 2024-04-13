@@ -5,7 +5,7 @@ from models.base import Base
 
 
 class Condition(Base):
-
+    """ create the condition table which contain the condition of the product """
     __tablename__ = 'condition'
 
     id = Column(BigInteger, primary_key=True)
@@ -13,6 +13,7 @@ class Condition(Base):
 
     products = relationship('Product', back_populates='condition')
 
+    # create the serialize function to return dict with all attrs
     def serialize(self):
         """create attrs of the condition as dict"""
         return {
