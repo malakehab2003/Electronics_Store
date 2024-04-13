@@ -50,7 +50,7 @@ const showProduct = (id) => {
 
 const purchase = (id, public_key) => {
 	const stripe = Stripe(public_key);
-	$.post('http://localhost:4000/purchase', { product_id: id })
+	$.post('http://web-02.malakehab.tech/purchase', { product_id: id })
 		.then((data) => {
 			return stripe.redirectToCheckout({ sessionId: data.id })
 		})
